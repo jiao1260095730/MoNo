@@ -15,8 +15,8 @@ public class SwaggerConfig {
     //创建文档说明
     @Bean
     public ApiInfo createAI() {
-        ApiInfo apiInfo = new ApiInfoBuilder().title("天气预报小助手").description("实现一款小的天气预报")
-                .contact(new Contact("焦斌", "http://www.17feri.top",
+        ApiInfo apiInfo = new ApiInfoBuilder().title("mono").description("实现一款艺术交流平台")
+                .contact(new Contact("Java组", "http://www.17feri.top",
                         "xingferi_work@163.com")).build();
         return apiInfo;
     }

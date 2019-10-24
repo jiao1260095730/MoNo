@@ -43,6 +43,11 @@ public class ShiroConfig {
         map.put("/api/user/login.do","anon");
         //静态资源放行
         map.put("/static/media/**","anon");
+        map.put("/swagger-ui.html", "anon");
+        map.put("/webjars/**", "anon");
+        map.put("/v2/**", "anon");
+        map.put("/swagger-resources/**", "anon");
+        map.put("/swagger-resources", "anon");
         //swagger接口权限 开放
         map.put("/swagger-ui.html", "anon");
         map.put("/webjars/**", "anon");
