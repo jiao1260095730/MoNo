@@ -25,6 +25,6 @@ public class SwaggerConfig {
     //创建Swagger扫描信息
     public Docket createD() {
         return new Docket(DocumentationType.SWAGGER_2).apiInfo(createAI()).select()
-                .apis(RequestHandlerSelectors.basePackage("com.qfedu.bootstudy.controller")).build();
+                .apis(RequestHandlerSelectors.basePackage("com.hykj.mono.controller")).build();
     }
 }
