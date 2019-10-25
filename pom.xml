@@ -75,7 +75,11 @@
         <!-- io.springfox:springfox-swagger2:2.9.2中依赖了swagger-models的1.5.20版本，通过排除springfox-swagger2中的swagger-models依赖，
         导入io.swagger:swagger-models的1.5.21版本.解决io.swagger.models.parameters.AbstractSerializableParameter实例化参数时example为
         空字符串""而报错的问题.因为1.5.20的example只判断是否为null,1.5.21判断了是否为null和""-->
-
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-models</artifactId>
+            <version>1.5.21</version>
+        </dependency>
 
         <dependency>
             <groupId>mysql</groupId>
