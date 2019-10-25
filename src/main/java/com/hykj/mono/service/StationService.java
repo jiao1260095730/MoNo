@@ -7,4 +7,6 @@ import com.hykj.mono.vo.R;
 public interface StationService extends IService<Station> {
 
     R getStationsByTypeId(int id);
+
+    R stationAll();
 }

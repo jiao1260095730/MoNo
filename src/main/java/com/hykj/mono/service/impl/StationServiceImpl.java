@@ -18,4 +18,10 @@ public class StationServiceImpl extends ServiceImpl<StationDao, Station> impleme
         List<Station> list = getBaseMapper().selectList(new QueryWrapper<Station>().eq("type_id", id));
         return R.setOK(list);
     }
+
+    @Override
+    public R stationAll() {
+        List<Station> stationList = getBaseMapper().selectList(new QueryWrapper<>());
+        return R.setOK(stationList);
+    }
 }
