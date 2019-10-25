@@ -8,6 +8,8 @@ public interface StationService extends IService<Station> {
 
     R getStationsByTypeId(int id);
 
+    R stationAll();
+
     R getStationById(int id);
 
     R getStationRankingList();
