@@ -21,4 +21,23 @@ public class StationController {
     public R getStationsByTypeId(int id) {
         return stationService.getStationsByTypeId(id);
     }
+
+    @GetMapping("/station/getStationById")
+    @ApiOperation(value = "按id查找对应的主题站",notes = "按id查找对应的主题站")
+    @ApiImplicitParam(value = "主题站的id",name = "id",required = true,dataType = "int",defaultValue = "1")
+    public R getStationById(int id) {
+        return stationService.getStationById(id);
+    }
+
+    @GetMapping("/station/getStationRankingList")
+    @ApiOperation(value = "获取主题站排行榜中所有的主题站",notes = "获取主题站排行榜中所有的主题站")
+    public R getStationRankingList() {
+        return stationService.getStationRankingList();
+    }
+
+    @GetMapping("/station/getAppRecommend")
+    @ApiOperation(value = "获取官方推荐的主题站",notes = "获取官方推荐的主题站")
+    public R getAppRecommend() {
+        return stationService.getAppRecommend();
+    }
 }
