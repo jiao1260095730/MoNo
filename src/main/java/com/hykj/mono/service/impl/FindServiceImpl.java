@@ -2,6 +2,7 @@ package com.hykj.mono.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.hykj.mono.dao.FindDao;
+import com.hykj.mono.entity.Station;
 import com.hykj.mono.entity.ZhanTiezi;
 import com.hykj.mono.service.FindService;
 import com.hykj.mono.vo.R;
@@ -17,7 +18,19 @@ public class FindServiceImpl extends ServiceImpl<FindDao, ZhanTiezi> implements 
 
     @Override
     public R selectTitleByStationId(int stationId) {
-        List<ZhanTiezi> List = findDao.selectTitleByStationId(stationId);
-        return R.setOK(List);
+        List<ZhanTiezi> list = findDao.selectTitleByStationId(stationId);
+        return R.setOK(list);
+    }
+
+    @Override
+    public R getStationByImg(String backgroundImg) {
+        List<Station> list = findDao.getStationByImg(backgroundImg);
+        return R.setOK(list);
+    }
+
+    @Override
+    public R getStationImgAndId() {
+        List<Station> list = findDao.getStationImgAndId();
+        return R.setOK(list);
     }
 }

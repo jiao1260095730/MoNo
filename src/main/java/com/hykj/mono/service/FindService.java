@@ -6,4 +6,8 @@ import com.hykj.mono.vo.R;
 
 public interface FindService extends IService<ZhanTiezi> {
     R selectTitleByStationId(int stationId);
+
+    R getStationByImg(String backgroundImg);
+
+    R getStationImgAndId();
 }
