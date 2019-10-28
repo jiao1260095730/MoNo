@@ -10,6 +10,7 @@ import com.hykj.mono.vo.R;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Objects;
@@ -67,26 +68,4 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
         }
     }
 
-   // @Override
-   // public R forget(String phone) {
-   //     if (phone != null) {
-   //         int count = getBaseMapper().selectCount(new QueryWrapper<User>().eq("phone", phone));
-   //         if (count == 1) {
-//
-   //         }
-   //     }
-   //     return R.setERROR();
-   // }
-
-    @Override
-    public User selectUser() {
-        //创建主题对象
-        Subject subject = SecurityUtils.getSubject();
-        Object user = subject.getPrincipals();
-        System.out.println("+++"+user);
-        User user1 = getBaseMapper().selectOne(new QueryWrapper<User>().eq("phone", user));
-        System.out.println(user1);
-        return user1;
-        //错误为NULL  没传入参数
-    }
 }

@@ -42,16 +42,27 @@ public class UserController {
         return userService.verify(phone);
     }
 
-   // @PostMapping("/api/user/verifyPhone.do")
-   // @ApiOperation(value = "忘记密码", notes = "进行密码重置")
-   // public R forgetPassword(String phone) {
-   //     return userService.forget(phone);
-   // }
 
-    @PostMapping("/api/user/selectUser.do")
-    @ApiOperation(value = "根据手机号查找用户", notes = "查找用户")
-    @ApiImplicitParam(value = "手机号", name = "phone", required = true, dataType = "String")
-    public User selectUser() {
-        return userService.selectUser();
-    }
+
+    /**
+     *code is far away from bug with the animal protecting
+     *                    ┏┓　　　┏┓
+     *                 ┏┛┻━━━┛┻┓
+     *                 ┃　　　　　　　┃ 　
+     *                 ┃　　　━　　　┃
+     *                 ┃　┳┛　┗┳　┃
+     *                 ┃　　　　　　　┃
+     *                 ┃　　　┻　　　┃
+     *                 ┃　　　　　　　┃
+     *                 ┗━┓　　　┏━┛
+     *                 　　┃　　　┃神兽保佑
+     *                 　　┃　　　┃代码无BUG！
+     *                 　　┃　　　┗━━━┓
+     *                 　　┃　　　　　　　┣┓
+     *                 　　┃　　　　　　　┏┛
+     *                 　　┗┓┓┏━┳┓┏┛
+     *                 　　 ┃┫┫　┃┫┫
+     *                 　　┗┻┛　┗┻┛
+     *
+     */
 }

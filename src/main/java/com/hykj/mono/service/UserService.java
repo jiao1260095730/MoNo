@@ -15,8 +15,4 @@ public interface UserService  extends IService<User>{
 
     R verify(String phone);
 
-
-    //R forget(String phone);
-
-    User selectUser();
 }
