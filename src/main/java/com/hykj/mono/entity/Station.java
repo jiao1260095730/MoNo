@@ -16,7 +16,7 @@ public class Station {
 
     private String descr;
 
-    @TableField(value = "guanzhu_user_id")
+    @TableField(value = "user_id")
     private Integer userId;
 
     @TableField(value = "head_img")
@@ -25,7 +25,7 @@ public class Station {
     @TableField(value = "background_img")
     private String backgroundImg;
 
-    @TableField(value = "guanzhu_num")
+    @TableField(value = "focus_num")
     private Integer focusNum;
 
     @TableField(value = "type_id")
