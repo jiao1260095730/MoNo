@@ -28,16 +28,12 @@ public class User {
     private String suozaidi;
     private String gexingqianming;
 
-    @TableField("xiangce_id")
-    private int xiangceid;
+    @TableField("guanzhuzhan_num")
+    private int guanZhuZhanNum;
 
-    @TableField("shoucang_id")
-    private int shoucang_id;
+    @TableField("concern_num")
+    private int concernNum;
 
-    @TableField("guanzhuzhan_id")
-    private int guanzhuzhan_id;
-
-    @TableField("maotie_id")
-    private int maotie_id;
-
+    @TableField("fans_num")
+    private int fansNum;
 }

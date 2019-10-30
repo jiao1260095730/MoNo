@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController()
-@Api(value = "关于用户的相关接口", tags = "UserController")
+@Api(value = "关于用户的相关接口", tags = "实现我的界面用户相关功能")
 public class UserController {
     @Autowired
     private UserService userService;
@@ -42,6 +42,11 @@ public class UserController {
         return userService.verify(phone);
     }
 
+    @PostMapping("/api/user/showUser.do")
+    @ApiOperation(value = "展示用户信息", notes = "进入我的页面，展示用户信息")
+    public R showUserInfo() {
+        return userService.showUserInfo();
+    }
 
 
     /**

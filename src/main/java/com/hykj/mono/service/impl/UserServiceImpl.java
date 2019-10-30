@@ -18,6 +18,9 @@ import java.util.Objects;
 @Service
 public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserService {
 
+    @Autowired
+    UserDao userDao;
+
     @Override
     public R login(UserDto userDto) {
         User user = getBaseMapper().selectOne(new QueryWrapper<User>().eq("phone", userDto.getPhone()));
@@ -66,6 +69,13 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
         } else {
             return R.setERROR();
         }
+    }
+
+    @Override
+    public R showUserInfo() {
+
+        //String phone = (String) SecurityUtils.getSubject().getSession().getAttribute("phone");
+        return R.setOK(userDao.selectUserByPhone("13213538971"));
     }
 
 }
