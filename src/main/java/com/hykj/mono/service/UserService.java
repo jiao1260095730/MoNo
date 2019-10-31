@@ -22,4 +22,6 @@ public interface UserService  extends IService<User>{
     R showFans(int id);
 
     R showZhuTiZhan(Integer id);
+
+    R updateByPhone(User user);
 }

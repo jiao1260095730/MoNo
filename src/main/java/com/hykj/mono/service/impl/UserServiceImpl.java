@@ -18,9 +18,11 @@ import java.util.Objects;
 
 @Service
 public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserService {
+    private UserService userService;
 
     @Autowired
     UserDao userDao;
+
 
     @Override
     public R login(UserDto userDto) {
@@ -95,6 +97,12 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
     public R showZhuTiZhan(Integer id) {
         List<User> zhuTiZhan = userDao.showZhuTiZhan(id);
         return R.setOK(zhuTiZhan);
+    }
+
+    @Override
+    public R updateByPhone(User user) {
+        return R.setOK(update(user, new QueryWrapper<User>().lambda().eq(User::getPhone, user.getPhone())));
+
     }
 
 }

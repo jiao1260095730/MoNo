@@ -9,8 +9,10 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController()
@@ -47,6 +49,15 @@ public class UserController {
     @ApiOperation(value = "展示用户信息", notes = "进入我的页面，展示用户信息")
     public R showUserInfo() {
         return userService.showUserInfo();
+    }
+
+
+    @ApiOperation("修改用户信息")
+    @PostMapping("/api/user/update.do")
+    public R update(@Validated @RequestBody User user ) {
+
+        userService.updateByPhone(user);
+        return R.setOK("success");
     }
 
     @GetMapping("/api/user/showConcern.do")
