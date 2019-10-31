@@ -13,6 +13,7 @@ import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Objects;
 
 @Service
@@ -74,8 +75,26 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
     @Override
     public R showUserInfo() {
 
-        //String phone = (String) SecurityUtils.getSubject().getSession().getAttribute("phone");
-        return R.setOK(userDao.selectUserByPhone("13213538971"));
+        String phone = (String) SecurityUtils.getSubject().getSession().getAttribute("phone");
+        return R.setOK(userDao.selectUserByPhone(phone));
+    }
+
+    @Override
+    public R showConcern(int id) {
+        List<User> concerns = userDao.selectConcerns(id);
+        return R.setOK(concerns);
+    }
+
+    @Override
+    public R showFans(int id) {
+        List<User> fans = userDao.selectFans(id);
+        return R.setOK(fans);
+    }
+
+    @Override
+    public R showZhuTiZhan(Integer id) {
+        List<User> zhuTiZhan = userDao.showZhuTiZhan(id);
+        return R.setOK(zhuTiZhan);
     }
 
 }

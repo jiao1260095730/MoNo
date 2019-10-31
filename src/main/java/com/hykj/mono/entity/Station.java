@@ -16,9 +16,6 @@ public class Station {
 
     private String descr;
 
-    @TableField(value = "user_id")
-    private Integer userId;
-
     @TableField(value = "head_img")
     private String headImg;
 

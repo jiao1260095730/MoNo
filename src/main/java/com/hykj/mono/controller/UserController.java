@@ -9,6 +9,7 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -42,12 +43,29 @@ public class UserController {
         return userService.verify(phone);
     }
 
-    @PostMapping("/api/user/showUser.do")
+    @GetMapping("/api/user/showUser.do")
     @ApiOperation(value = "展示用户信息", notes = "进入我的页面，展示用户信息")
     public R showUserInfo() {
         return userService.showUserInfo();
     }
 
+    @GetMapping("/api/user/showConcern.do")
+    @ApiOperation(value = "获取关注的所有用户", notes = "我的页面，点击关注查看我关注的所有用户")
+    public R showConcern(Integer id) {
+        return userService.showConcern(id);
+    }
+
+    @GetMapping("/api/user/showFans.do")
+    @ApiOperation(value = "获取用户的所有粉丝", notes = "我的页面，点击关注你查看所有关注我的用户")
+    public R showFans(Integer id) {
+        return userService.showFans(id);
+    }
+
+    @GetMapping("/api/user/showZhuTiZhan.do")
+    @ApiOperation(value = "获取用户关注的所有主题站", notes = "我的页面，我关注的主题站查看我关注的所有主题站")
+    public R showZhuTiZhan(Integer id) {
+        return userService.showZhuTiZhan(id);
+    }
 
     /**
      *code is far away from bug with the animal protecting
