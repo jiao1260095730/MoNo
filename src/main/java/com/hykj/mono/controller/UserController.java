@@ -1,6 +1,7 @@
 package com.hykj.mono.controller;
 
 import com.hykj.mono.dto.UserDto;
+import com.hykj.mono.dto.UpdateUser;
 import com.hykj.mono.entity.User;
 import com.hykj.mono.service.UserService;
 import com.hykj.mono.vo.R;
@@ -9,10 +10,8 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController()
@@ -54,9 +53,9 @@ public class UserController {
 
     @ApiOperation("修改用户信息")
     @PostMapping("/api/user/update.do")
-    public R update(@Validated @RequestBody User user ) {
+    public R update( UpdateUser updateUser ) {
 
-        userService.updateByPhone(user);
+        userService.updateByPhone(updateUser);
         return R.setOK("success");
     }
 

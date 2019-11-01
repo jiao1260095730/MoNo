@@ -3,6 +3,7 @@ package com.hykj.mono.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.hykj.mono.dao.UserDao;
+import com.hykj.mono.dto.UpdateUser;
 import com.hykj.mono.dto.UserDto;
 import com.hykj.mono.entity.User;
 import com.hykj.mono.service.UserService;
@@ -100,8 +101,8 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
     }
 
     @Override
-    public R updateByPhone(User user) {
-        return R.setOK(update(user, new QueryWrapper<User>().lambda().eq(User::getPhone, user.getPhone())));
+    public R updateByPhone(UpdateUser updateUser) {
+        return R.setOK(update(updateUser, new QueryWrapper<User>().lambda().eq(User::getPhone, updateUser.getPhone())));
 
     }
 

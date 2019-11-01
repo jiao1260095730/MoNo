@@ -2,6 +2,7 @@ package com.hykj.mono.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import com.hykj.mono.dto.UpdateUser;
 import com.hykj.mono.dto.UserDto;
 import com.hykj.mono.entity.User;
 import com.hykj.mono.vo.R;
@@ -26,4 +27,5 @@ public interface UserService  extends IService<User>{
     R updateByPhone(User user);
 
     R showXiangCe(Integer id);
+    R updateByPhone(UpdateUser updateUserr);
 }
