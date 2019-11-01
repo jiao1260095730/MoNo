@@ -28,4 +28,9 @@ public interface UserDao  extends BaseMapper<User> {
             "u.id = us.uid and s.id = us.station_id and u.id = #{id}")
     @ResultType(Station.class)
     List<User> showZhuTiZhan(Integer id);
+
+    @Select("select xc.img_url from user u, user_xiangce xc where\n" +
+            "u.id = xc.user_id and u.id = #{id}")
+    @ResultType(String.class)
+    List<String> selectAllPhotos(Integer id);
 }

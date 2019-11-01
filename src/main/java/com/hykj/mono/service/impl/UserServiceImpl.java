@@ -105,4 +105,10 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
 
     }
 
+    @Override
+    public R showXiangCe(Integer id) {
+        List<String> photos = userDao.selectAllPhotos(id);
+        return R.setOK(photos);
+    }
+
 }

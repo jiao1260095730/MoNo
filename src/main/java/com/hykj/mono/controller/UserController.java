@@ -78,7 +78,18 @@ public class UserController {
         return userService.showZhuTiZhan(id);
     }
 
-    /**
+    @GetMapping("/api/user/showXiangCe.do")
+    @ApiOperation(value = "获取用户的相册信息", notes = "我的页面，用户相册信息")
+    public R showXiangCe(Integer id) {
+        return userService.showXiangCe(id);
+    }
+
+
+
+
+
+
+    /*
      *code is far away from bug with the animal protecting
      *                    ┏┓　　　┏┓
      *                 ┏┛┻━━━┛┻┓
