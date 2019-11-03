@@ -9,6 +9,7 @@ import com.hykj.mono.utils.JsonUtils;
 import com.hykj.mono.utils.RedisConstants;
 import com.hykj.mono.utils.RedisUtil;
 import com.hykj.mono.vo.R;
+import com.hykj.mono.vo.ShowStation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,7 +42,7 @@ public class StationServiceImpl extends ServiceImpl<StationDao, Station> impleme
 
     @Override
     public R getStationRankingList() {
-        List<Station> list = stationDao.getStationRankingList();
+        List<ShowStation> list = stationDao.getStationRankingList();
         redisUtil.set("StationRankingList", JsonUtils.objectToJson(list), RedisConstants.datebase1);
         redisUtil.expire("StationRankingList",60*30,RedisConstants.datebase1);
         return R.setOK(list);

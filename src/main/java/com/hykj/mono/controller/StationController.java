@@ -6,6 +6,7 @@ import com.hykj.mono.utils.JsonUtils;
 import com.hykj.mono.utils.RedisConstants;
 import com.hykj.mono.utils.RedisUtil;
 import com.hykj.mono.vo.R;
+import com.hykj.mono.vo.ShowStation;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
@@ -40,7 +41,7 @@ public class StationController {
     public R getStationRankingList() {
         if (redisUtil.get("StationRankingList",RedisConstants.datebase1) != null) {
             String list = redisUtil.get("StationRankingList", RedisConstants.datebase1);
-            return R.setOK(JsonUtils.jsonToList(list, Station.class));
+            return R.setOK(JsonUtils.jsonToList(list, ShowStation.class));
         } else {
             return stationService.getStationRankingList();
         }

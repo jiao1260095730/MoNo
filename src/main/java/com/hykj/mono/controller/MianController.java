@@ -22,5 +22,4 @@ public class MianController {
     public R getShowsByStationTypeId(int id) {
         return mainService.getShowsByStationTypeId(id);
     }
-
 }

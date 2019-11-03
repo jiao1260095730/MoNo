@@ -26,5 +26,7 @@ public interface UserService  extends IService<User>{
 
     R showXiangCe(Integer id);
 
+    R getUserByStationId(int id);
+
     R updateByPhone(UpdateUser updateUser);
 }

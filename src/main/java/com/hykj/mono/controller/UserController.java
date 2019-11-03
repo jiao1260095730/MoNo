@@ -83,6 +83,11 @@ public class UserController {
         return userService.showXiangCe(id);
     }
 
+    @GetMapping("/api/stationDetails/userInfo")
+    @ApiOperation(value = "用于主题站内展示拥有者信息",notes = "用于主题站内展示拥有者信息")
+    public R showUserInfoInStation(int id) {
+        return userService.getUserByStationId(id);
+    }
 
 
 

@@ -8,6 +8,7 @@ import com.hykj.mono.dto.UserDto;
 import com.hykj.mono.entity.User;
 import com.hykj.mono.service.UserService;
 import com.hykj.mono.vo.R;
+import com.hykj.mono.vo.SimpleUser;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
@@ -100,10 +101,21 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
         return R.setOK(zhuTiZhan);
     }
 
+
+    public R updateByPhone(User user) {
+        return null;
+    }
+
     @Override
     public R updateByPhone(UpdateUser updateUser) {
         return R.setOK(update(updateUser, new QueryWrapper<User>().lambda().eq(User::getPhone, updateUser.getPhone())));
 
+    }
+
+    @Override
+    public R getUserByStationId(int id) {
+        SimpleUser simpleUser = userDao.getUserByStationId(id);
+        return R.setOK(simpleUser);
     }
 
     @Override
