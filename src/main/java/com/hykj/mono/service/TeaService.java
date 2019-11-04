@@ -15,4 +15,8 @@ public interface TeaService extends IService<Maotie> {
     R seletToPm(String ite);
 
     R selectAdmin(String ite, int adminId);
+
+    R clickZan(int tieZeId);
+
+    R clickShouCang(int userID, int tieZeId);
 }

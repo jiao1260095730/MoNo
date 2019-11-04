@@ -40,4 +40,18 @@ public class TeaServiceImpl extends ServiceImpl<TeaDao, Maotie> implements TeaSe
         List<Maotie> list = teaDao.selectAdmin(ite, adminId);
         return R.setOK(list);
     }
+
+    @Override
+    public R clickZan(int tieZeId) {
+        Integer integer = teaDao.clickZan(tieZeId);
+        return R.setOK(integer);
+    }
+
+    @Override
+    public R clickShouCang(int userID, int tieZeId) {
+        Integer integer = teaDao.clickShouCang(userID, tieZeId);
+        return R.setOK(integer);
+    }
+
+
 }

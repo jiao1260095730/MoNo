@@ -79,7 +79,22 @@ public class TeaController {
         return teaService.selectAdmin(ite, adminId);
     }
 
+    @PostMapping("/tea/clickZan")
+    @ApiOperation(value = "点赞",notes = "点赞")
+    @ApiImplicitParam(value = "点赞文章id",name = "tieZeId",required = true,dataType = "int")
+    public R clickZan(int tieZeId) {
+        return teaService.clickZan(tieZeId);
+    }
 
+    @PostMapping("/tea/clickShouCang")
+    @ApiOperation(value = "收藏",notes = "收藏")
+    @ApiImplicitParams({
+            @ApiImplicitParam(value = "用户id",name = "userId",required = true,dataType = "int"),
+            @ApiImplicitParam(value = "收藏文章id",name = "tieZeId",required = true,dataType = "int")
+    })
+    public R clickShouCang(int userId, int tieZeId) {
+        return teaService.clickShouCang(userId, tieZeId);
+    }
 
 
 }
