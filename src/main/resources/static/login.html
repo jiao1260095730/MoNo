@@ -1,34 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>登录系统</title>
-    <script type="application/javascript" src="media/js/jquery-3.3.1.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>MoNo</title>
+    <link rel="stylesheet" href="media/css/style.css"/>
+    <script src="media/js/jquery-3.3.1.js"></script>
 </head>
 <body>
-<h1>欢迎登录</h1>
-<div>
-    <form id="fm" >
-        <p><label>用户名：</label><input type="text" name="phone" placeholder="请输入用户名"></p>
-        <p><label>密码：</label><input type="password" name="password" placeholder="请输入密码"></p>
-        <p><input type="button" value="登录" onclick="subForm()"></p>
+<div class="usrbox">
+    <h2>登录</h2>
+    <form id="fm1">
+        <div class="inputBox">
+            <input type="text" name="phone" required=""/>
+            <label>UserName:</label>
+        </div>
+
+        <div class="inputBox">
+            <input type="password" name="password" required=""/>
+            <label>Password:</label>
+        </div>
+
+        <input type="button" id="login_btn" value="登录"/>
     </form>
+
+    <script>
+
+        $('#login_btn').on('click', function () {
+            $.ajax({
+                url: "api/user/login.do",
+                method: "post",
+                data: $("#fm1").serialize(),
+                success: function (obj) {
+                    if (obj.code == 200) {
+                        location.href = "index.html";
+                    } else {
+                        alert("密码错误");
+                    }
+                }
+            })
+
+        });
+
+    </script>
 </div>
-<script type="application/javascript">
-    function subForm(){
-        $.ajax({
-        url:"/api/user/login.do",
-        method:"post",
-        data:$("#fm").serialize(),
-        success:function(obj){
-            if(obj.code==200){
-                    location.href="index.html";
-            }else{
-                alert("登录失败");
-            }
-        }
-        })
-    }
-</script>
 </body>
 </html>
