@@ -35,7 +35,7 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
         //查询
         if (user != null) {
             //3、验证密码
-            if (Objects.equals(user.getPassword(), user.getPassword())) {
+            if (Objects.equals(user.getPassword(), userDto.getPassword())) {
                 //4、操作Shiro
                 //1、创建主题对象
                 Subject subject = SecurityUtils.getSubject();
